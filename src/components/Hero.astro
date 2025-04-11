@@ -1,0 +1,54 @@
+---
+import Badge from "./Badge.astro";
+import SocialPill from "./SocialPill.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import GmailIcon from "../icons/Gmail.astro";
+---
+
+<img class="rounded-full size-20 mb-4" src="/foto-perfil.webp" alt="" />
+<h1
+  class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+>
+  ¡Hola!, soy Josué <a
+    href="https://www.linkedin.com/in/josue-hernandez-5788391ab/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center"
+  >
+    <Badge>Disponible para trabajar</Badge>
+  </a>
+</h1>
+<h2 class="text-white text-xl lg:text-2xl font-bold pb-5 max-w-[700px]">
+  Estudiante Universitario. De <span class="opacity-80 text-orange-500"
+    >Bartender🍹</span
+  >a <span class="opacity-100 text-cyan-500">Dev 💻</span>
+</h2>
+<h3 class="text-white text-lg text-wrap">
+  2 años de experiencia en el campo.
+  <span class="opacity-80 text-pink-300">Desarrollador Web Fullstack Jr.</span> y
+  <span class="opacity-80 text-pink-300">Analista de Seguridad;</span>
+  3 años de experiencia en <span class="opacity-80 text-pink-300"
+    >atención al cliente.</span
+  >
+</h3>
+<h3 class="text-white text-lg text-wrap">
+  De <span class="opacity-80 text-yellow-400">Bucaramanga</span>,
+  <span class="opacity-80 text-blue-400">Santander</span>,
+  <span class="opacity-80 text-red-400">Colombia.</span>
+</h3>
+
+<nav class="flex gap-4 mt-5 flex-wrap">
+  <SocialPill href="https://www.linkedin.com/in/josue-hernandez-5788391ab/">
+    <LinkedInIcon class="size-4 md:size-6" />
+    LinkedIn
+  </SocialPill>
+  <SocialPill href="https://github.com/Gyuko00">
+    <GitHubIcon class="size-4 md:size-6" />
+    GitHub
+  </SocialPill>
+  <SocialPill href="mailto:josuehernandezorro147@gmail.com">
+    <GmailIcon class="size-4 md:size-6" />
+    josuehernandezorro147@gmail.com
+  </SocialPill>
+</nav>

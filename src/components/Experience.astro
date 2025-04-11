@@ -1,0 +1,44 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const experience = [
+  {
+    title: "Analista de Seguridad de la Información",
+    date: "Enero 2024 - Actualidad",
+    description:
+      `Analista de Seguridad de la Información y Desarrollador Web Fullstack Jr. 
+      en Avatelco Legal Tech S.A.S`,
+  },
+  {
+    title: "Bartender",
+    date: "Agosto 2023 - Diciembre 2023",
+    description:
+      `Atención al cliente como Bartender en Tulum Mexican Grill`,
+  },
+  {
+    title: "Logística | Mesero | Auxiliar de barra",
+    date: "Octubre 2021 - Agosto 2023",
+    description:
+      `Atención al cliente como Logística, Mesero y Auxiliar de barra en Clásicos Forever`,
+  },
+  {
+    title: "Bodega",
+    date: "Junio 2021 - Julio 2021",
+    description:
+      `Taller de producción de artesanías en Poster's Shop`,
+  }
+   
+];
+--- 
+
+
+<ol class="relative border-s border-gray-200 ml-3">                  
+  {
+    experience.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
+

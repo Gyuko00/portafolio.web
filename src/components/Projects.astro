@@ -1,0 +1,147 @@
+---
+import HTMLIcon from "../icons/HTML.astro";
+import CSSIcon from "../icons/CSS.astro";
+import JSIcon from "../icons/JS.astro";
+import TSIcon from "../icons/TS.astro";
+import ReactIcon from "../icons/React.astro";
+import NodeJSIcon from "../icons/NodeJS.astro";
+import MySQLIcon from "../icons/MySQL.astro";
+import TailwindCSSIcon from "../icons/TailwindCSS.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import LinkButton from "./LinkButton.astro";
+import PHPIcon from "../icons/PHP.astro";
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: { name: string; class: string; icon: any }[];
+  github?: string;
+}
+
+const TAGS = {
+  html: {
+    name: "HTML",
+    class: "bg-[#BE3D2A] text-white",
+    icon: HTMLIcon,
+  },
+  css: {
+    name: "CSS",
+    class: "bg-[#003159] text-white",
+    icon: CSSIcon,
+  },
+  js: {
+    name: "JavaScript",
+    class: "bg-[#FBA518] text-white",
+    icon: JSIcon,
+  },
+  ts: {
+    name: "TypeScript",
+    class: "bg-[#003161] text-white",
+    icon: TSIcon,
+  },
+  react: {
+    name: "React",
+    class: "bg-[#261FB3] text-white",
+    icon: ReactIcon,
+  },
+  node: {
+    name: "Node.js",
+    class: "bg-[#255F38] text-white",
+    icon: NodeJSIcon,
+  },
+  mysql: {
+    name: "MySQL",
+    class: "bg-[#222222] text-white",
+    icon: MySQLIcon,
+  },
+  tailwind: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: TailwindCSSIcon,
+  },
+  php: {
+    name: "PHP",
+    class: "bg-[#787CB5] text-white",
+    icon: PHPIcon,
+  },
+};
+
+const PROJECTS: Project[] = [
+  {
+    title: "CRM Avatelco",
+    description: `Dashboard desarrollada en Avatelco Legal Tech S.A.S,
+                      con un diseño sencillo e intuitivo, esta herramienta está diseñada para ayudar 
+                      a los abogados a gestionar sus clientes y sus casos de manera eficiente`,
+    image: "/projects/projecto-crm.webp",
+    tags: [
+      TAGS.html,
+      TAGS.js,
+      TAGS.ts,
+      TAGS.react,
+      TAGS.node,
+      TAGS.mysql,
+      TAGS.tailwind,
+    ],
+  },
+  {
+    title: "Notas & Ecos",
+    description: `Aplicación web MVC que conecta con los gustos musicales de las personas. 
+    Incluye una sección con herramientas digitales como un quiz en Kahoot, un juego rítmico en Scratch, 
+    3 audios tipo podcast sobre historia musical y una app móvil tipo grabadora usada para crear los podcast. 
+    Además, integra un asistente inteligente que guía al usuario por cada sección del sitio.`,
+    image: "/projects/notas&ecos.webp",
+    tags: [TAGS.html, TAGS.php, TAGS.mysql, TAGS.css],
+    github: "https://github.com/Gyuko00/notas-y-ecos",
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ title, description, image, tags, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt={title}
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-pink-300/80">{title}</h3>
+          <div class="flex flex-wrap mt-2 ">
+            <ul class="flex flex-wrap gap-x-2">
+              {tags.map((tag) => (
+                <li class="mb-2">
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHubIcon class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
