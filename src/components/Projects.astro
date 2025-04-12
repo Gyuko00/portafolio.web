@@ -94,6 +94,14 @@ const PROJECTS: Project[] = [
     tags: [TAGS.html, TAGS.php, TAGS.mysql, TAGS.css],
     github: "https://github.com/Gyuko00/notas-y-ecos",
   },
+  {
+    title: "Eventos UTS",
+    description: `Aplicación web MVC diseñada para una mejor gestión de los eventos culturales y
+    académicos dentro de las Unidades Tecnológicas de Santander, desarrollada durante mi periodo de prácticas
+    en el Centro de Innovación y Productividad de la universidad.`,
+    image: "/projects/eventos-uts.webp",
+    tags: [TAGS.html, TAGS.php, TAGS.mysql, TAGS.css, TAGS.js]
+  }
 ];
 ---
 
@@ -119,7 +127,7 @@ const PROJECTS: Project[] = [
               {tags.map((tag) => (
                 <li class="mb-2">
                   <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                    class={`flex gap-x-2 rounded-full text-xs hover:scale-110 cursor-default ${tag.class} py-1 px-2 `}
                   >
                     <tag.icon class="size-4" />
                     {tag.name}
