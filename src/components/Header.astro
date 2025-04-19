@@ -23,20 +23,44 @@ const navItems = [
 ]
 ---
 
-<header class="flex justify-center items-center py-5 w-full xl:w-[1120px] mx-auto fixed">
+<!-- Header ocupa 100% del ancho -->
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md transition-all duration-300">
 
+  <!-- Contenedor centrado -->
+  <div class="flex justify-center items-center py-5 max-w-[1120px] mx-auto">
+    <nav class="flex flex-row gap-x-10 opacity-90">
+      {
+        navItems.map((link) => (
+          <a
+            class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
+            aria-label={link.label}
+            href={link.url}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
 
-  <nav class="flex flex-row gap-x-10 opacity-80">
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
-  </nav>
 </header>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("main-header");
+
+    if (!header) return; // Protección adicional
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.add("shadow-lg", "bg-white/80", "dark:bg-zinc-900/80");
+      } else {
+        header.classList.remove("shadow-lg", "bg-white/80", "dark:bg-zinc-900/80");
+      }
+    });
+  });
+</script>
+
+
+
